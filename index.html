@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blessed Journeys, LLC | Mid-Term Rentals in DFW</title>
+    <meta name="description" content="Providing warm, safe, and professional mid-term housing in the DFW area for families displaced by fire or water damage. Find your home between homes.">
+    
+    <!-- Google Fonts: Lato (Headings) & Open Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Variables for Easy Theming --- */
+        :root {
+            --primary-red: #E31937;
+            --primary-blue: #003f7f; /* Texas blue from logo */
+            --dark-text: #333;
+            --light-text: #555;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --border-color: #ddd;
+            --font-heading: 'Lato', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* --- Basic Reset & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--dark-text);
+            line-height: 1.2;
+        }
+
+        a {
+            color: var(--primary-red);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #a01329;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #a01329;
+            transform: translateY(-2px);
+            color: var(--white);
+        }
+
+        /* --- Header & Navigation --- */
+        .main-header {
+            background-color: var(--white);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: -5px;
+            color: var(--primary-red);
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            font-style: italic;
+        }
+        
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            padding-right: 80px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .main-nav a {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-red);
+        }
+
+        .phone-number {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .phone-number i {
+            margin-right: 8px;
+        }
+
+        .mobile-menu-toggle {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/2119713/pexels-photo-2119713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(227, 25, 55, 0.7) 0%, rgba(0, 63, 127, 0.7) 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 2px 2px 8px #E31937;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-family: var(--font-heading);
+        }
+
+        .hero-buttons .btn {
+            margin: 0 10px;
+        }
+
+        /* --- Sections Styling --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+
+        /* --- About Section --- */
+        .about {
+            background-color: var(--light-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- Properties Section --- */
+        .property-filters {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .property-filters select {
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .property-card-content {
+            padding: 20px;
+        }
+
+        .property-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .property-card p {
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+        
+        .property-location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .property-location i {
+            margin-right: 8px;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials {
+            background-color: var(--light-bg);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-red);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(227, 25, 55, 0.1);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card cite {
+            font-weight: 600;
+            color: var(--dark-text);
+            font-style: normal;
+        }
+
+        .testimonial-card cite span {
+            display: block;
+            font-weight: 400;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            background: linear-gradient(to right, rgba(227, 25, 55, 0.05), rgba(0, 63, 127, 0.05));
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            /*background-color: var(--dark-text);*/
+            background-color: #003f7fb3;
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            opacity: 0.8;
+        }
+
+        .main-footer p {
+            margin-bottom: 10px;
+        }
+
+        .main-footer a {
+            color: var(--white);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .about-content { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav { display: none; } /* Hide desktop nav */
+            .main-nav.is-active {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                border-top: 1px solid var(--border-color);
+            }
+            .main-nav.is-active ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            .mobile-menu-toggle { display: block; } /* Show hamburger */
+            .phone-number { display: none; } /* Hide number on mobile */
+            
+            .logo-text h1 { font-size: 1.2rem; }
+            .logo-tagline { font-size: 0.7rem; }
+
+            .hero { height: 60vh; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .hero-buttons .btn { display: block; width: 80%; margin: 10px auto; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =================== HEADER =================== -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img style="width: 10%;height: 10%;" src="https://i.postimg.cc/Tw3HZgKY/logo-blessed-journeys-for-square.png" alt="Blessed Journeys Logo">
+            </div>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#properties">Our Homes</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="tel:678-313-8321" class="phone-number"><i class="fas fa-phone"></i> 678-313-8321</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <!-- =================== HERO SECTION =================== -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>When the Unexpected Happens</h1>
+                <p>We provide a safe, comfortable haven for your family in the DFW area.</p>
+                <div class="hero-buttons">
+                    <a href="#properties" class="btn">Find Your Home</a>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== ABOUT SECTION =================== -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">A Haven in Your Time of Need</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>At Blessed Journeys, we understand that facing displacement from your home due to fire or water damage is incredibly stressful. For over 8 years, our family-run business has been dedicated to serving families across the Dallas/Fort Worth metroplex with compassion and professionalism.</p>
+                        <p>Rooted in Christian values, we commit to providing more than just a house—we provide a true home. A clean, safe, and welcoming environment where you and your loved ones can find peace and begin to rebuild. We are a trusted partner for insurance adjusters and national relocation companies, ensuring a seamless and caring transition for every client we serve.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600" alt="A welcoming family room">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== PROPERTIES SECTION =================== -->
+        <section id="properties" class="properties">
+            <div class="container">
+                <h2 class="section-title">Our Comfortable DFW Homes</h2>
+                <div class="property-filters">
+                    <label for="city-filter">Filter by City: </label>
+                    <select id="city-filter">
+                        <option value="all">All Cities</option>
+                        <option value="dallas">Dallas</option>
+                        <option value="fort-worth">Fort Worth</option>
+                        <option value="plano">Plano</option>
+                        <option value="irving">Irving</option>
+                    </select>
+                </div>
+                <div class="property-grid" id="property-grid">
+                    <!-- Property 1 -->
+                    <div class="property-card" data-city="dallas">
+                        <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600" alt="A modern kitchen">
+                        <div class="property-card-content">
+                            <h3>The Dallas Haven</h3>
+                            <div class="property-location">
+                                <i class="fas fa-map-marker-alt"></i> Dallas, TX
+                            </div>
+                            <p>A spacious 3-bedroom, 2-bath home perfect for families. Features a large kitchen and a cozy living area.</p>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                    <!-- Property 2 -->
+                    <div class="property-card" data-city="plano">
+                        <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=600" alt="A modern bedroom">
+                        <div class="property-card-content">
+                            <h3>Plano Peaceful Retreat</h3>
+                            <div class="property-location">
+                                <i class="fas fa-map-marker-alt"></i> Plano, TX
+                            </div>
+                            <p>Quiet and comfortable 2-bedroom, 2-bath townhome. Pet-friendly with a small fenced yard.</p>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                    <!-- Property 3 -->
+                    <div class="property-card" data-city="fort-worth">
+                        <img src="https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=600" alt="A living room with fireplace">
+                        <div class="property-card-content">
+                            <h3>Fort Worth Family Home</h3>
+                            <div class="property-location">
+                                <i class="fas fa-map-marker-alt"></i> Fort Worth, TX
+                            </div>
+                            <p>This charming 3-bedroom home offers warmth and space, with a beautiful fireplace in the living room.</p>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                    <!-- Property 4 -->
+                    <div class="property-card" data-city="irving dallas">
+                        <img src="https://i.postimg.cc/cCFWpwM1/Irving-Convenience.jpg" alt="A suburban home exterior">
+                        <div class="property-card-content">
+                            <h3>Irving Convenience</h3>
+                            <div class="property-location">
+                                <i class="fas fa-map-marker-alt"></i> Irving, TX
+                            </div>
+                            <p>Located near major highways, this 2-bedroom apartment is ideal for easy access around the DFW metroplex.</p>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== TESTIMONIALS SECTION =================== -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Families Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"After our house fire, we were devastated. Blessed Journeys didn't just give us a place to stay, they gave us peace of mind. The home was immaculate and so comforting. We can't thank them enough."</p>
+                        <cite>- The Rodriguez Family <span>Dallas, TX</span></cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"As an insurance adjuster, I need reliable partners. Blessed Journeys is always my first call for placements in DFW. They are professional, compassionate, and truly care about the clients they serve."</p>
+                        <cite>- David Chen <span>National Relocation Co.</span></cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Our stay was a blessing. The home was fully equipped, safe for our kids, and they welcomed our dog too! It made a difficult situation so much more manageable. Highly recommend."</p>
+                        <cite>- Sarah Miller <span>Fort Worth, TX</span></cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== CONTACT SECTION =================== -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-form">
+                    <p>We're here to help you find your temporary home. Please fill out the form or call us directly.</p>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =================== FOOTER =================== -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img style="width: 10%;height: 10%;" src="https://i.postimg.cc/Tw3HZgKY/logo-blessed-journeys-for-square.png" alt="Blessed Journeys Logo">
+            </div>
+            <p>&copy; 2026 Blessed Journeys, LLC. All Rights Reserved.</p>
+            <i class="fas fa-phone"></i> 678-313-8321</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('is-active');
+            const icon = mobileMenuToggle.querySelector('i');
+            if (mainNav.classList.contains('is-active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mainNav.classList.remove('is-active');
+                    mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+                    mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Property Filter Simulation
+        const cityFilter = document.getElementById('city-filter');
+        const propertyGrid = document.getElementById('property-grid');
+        const propertyCards = propertyGrid.querySelectorAll('.property-card');
+
+        cityFilter.addEventListener('change', (e) => {
+            const selectedCity = e.target.value.toLowerCase();
+            
+            propertyCards.forEach(card => {
+                const cardCities = card.dataset.city.toLowerCase().split(' ');
+                
+                if (selectedCity === 'all' || cardCities.includes(selectedCity)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Contact Form Submission (Simulated)
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent actual form submission
+            alert('Thank you for your message. We will get back to you shortly. (This is a demo)');
+            contactForm.reset();
+        });
+    </script>
+
+</body>
+</html>
